@@ -1,6 +1,10 @@
 FROM node:14.17.5-buster AS node
 FROM ruby:3.0.2-buster
 
+# update
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
 # nginx
 COPY ./docker/scripts/install-nginx.sh /root/install-nginx.sh
 RUN bash /root/install-nginx.sh
