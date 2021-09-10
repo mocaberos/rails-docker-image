@@ -20,4 +20,4 @@ phases:
   post_build:
     commands:
       - |
-        echo 'Success';
+        notify-release-image rails-docker-image;
