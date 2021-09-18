@@ -6,6 +6,9 @@ Rails6用dockerイメージ
 
 ## Usage
 ```dockerfile
+# Public
+FROM mocaberos/rails-docker-image:latest
+# Private
 FROM 085041388644.dkr.ecr.ap-northeast-1.amazonaws.com/rails-docker-image:latest
 ```
 

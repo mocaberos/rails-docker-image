@@ -23,6 +23,7 @@ phases:
         set -eu;
         if trigger is release ?; then
           push-to-ecr rails-docker-image;
+          push-to-docker-hub rails-docker-image;
         fi;
   post_build:
     commands:
