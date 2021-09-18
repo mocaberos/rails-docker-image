@@ -1,12 +1,12 @@
-FROM node:14.17.5-buster AS node
-FROM ruby:3.0.2-buster
+FROM node:14.17.5-bullseye AS node
+FROM ruby:3.0.2-bullseye
 
 # update
 RUN apt-get update -y
 RUN apt-get upgrade -y
 
 # nginx
-COPY ./docker/scripts/install-nginx.sh /root/install-nginx.sh
+COPY ./docker/scripts/nginx-on-debian/install-nginx.sh /root/install-nginx.sh
 RUN bash /root/install-nginx.sh
 RUN rm -f /root/install-nginx.sh
 

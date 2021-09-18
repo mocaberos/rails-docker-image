@@ -1,3 +1,6 @@
 [submodule "vendor/tools"]
 	path = vendor/tools
 	url = https://github.com/mocaberos/tools.git
+[submodule "docker/scripts/nginx-on-debian"]
+	path = docker/scripts/nginx-on-debian
+	url = https://github.com/mocaberos/nginx-on-debian.git
