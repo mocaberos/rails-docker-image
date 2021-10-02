@@ -1,26 +1,27 @@
 # Rails docker image
 
-[![Build Status](https://codebuild.ap-northeast-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiVU8wSVhIckQ0VlJicXR5Yy9FSFdjRVUrbmNhUjNoVzBvSWZCd1d1REtHN0pFRGJyVFlMVmt2MjVva3VPQXkzcWNoMUpuWnFHa0lXQWNYclRtSTFGdDJBPSIsIml2UGFyYW1ldGVyU3BlYyI6InlGdnA3ZDJTM3loT2ozTmUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)](https://ap-northeast-1.console.aws.amazon.com/codesuite/codebuild/085041388644/projects/rails-docker-image)
+[![Build Status](https://codebuild.ap-northeast-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiVU8wSVhIckQ0VlJicXR5Yy9FSFdjRVUrbmNhUjNoVzBvSWZCd1d1REtHN0pFRGJyVFlMVmt2MjVva3VPQXkzcWNoMUpuWnFHa0lXQWNYclRtSTFGdDJBPSIsIml2UGFyYW1ldGVyU3BlYyI6InlGdnA3ZDJTM3loT2ozTmUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)](https://ap-northeast-1.console.aws.amazon.com/codesuite/codebuild/085041388644/projects/rails-docker-image)
 
-Rails6(puma)用dockerイメージ
+Rails 6 or 7 (puma)用dockerイメージ
 
 ## 使い方
 ```dockerfile
 # Public
 FROM mocaberos/rails-docker-image:latest
-FROM mocaberos/rails-docker-image:0.0.14
+FROM mocaberos/rails-docker-image:0.0.15
 # Private
 FROM 085041388644.dkr.ecr.ap-northeast-1.amazonaws.com/rails-docker-image:latest
-FROM 085041388644.dkr.ecr.ap-northeast-1.amazonaws.com/rails-docker-image:0.0.14
+FROM 085041388644.dkr.ecr.ap-northeast-1.amazonaws.com/rails-docker-image:0.0.15
 ```
 RailsアプリをDockerコンテナ内の`/app`ディレクトリにコピーして、
 pumaは`bind 'unix:/var/run/puma.sock'`を設定すると、使用可能。
 
 ## 詳細
-- Debian 10（Buster)
+- Debian 11（bullseye)
 - Nginx
   - https://github.com/mocaberos/nginx-on-debian
-- Rails6
+  - mrubyなしバージョン
+- Rails 6 or 7
 - Ruby 3.0.2
 - Node.js 14.17.5
 - jemalloc (Rubyのアロケーションライブラリをよりパフォーマンスの良いjemallocに変更)
