@@ -1,5 +1,5 @@
-FROM node:14.17.5-buster AS node
-FROM ruby:3.0.2-buster
+FROM node:14.17.5-bullseye AS node
+FROM ruby:3.0.2-bullseye
 
 # update
 RUN apt-get update -y
