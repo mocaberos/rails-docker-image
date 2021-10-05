@@ -8,10 +8,10 @@ Rails 6 or 7 (puma)用dockerイメージ
 ```dockerfile
 # Public
 FROM mocaberos/rails-docker-image:latest
-FROM mocaberos/rails-docker-image:0.0.16
+FROM mocaberos/rails-docker-image:0.0.17
 # Private
 FROM 085041388644.dkr.ecr.ap-northeast-1.amazonaws.com/rails-docker-image:latest
-FROM 085041388644.dkr.ecr.ap-northeast-1.amazonaws.com/rails-docker-image:0.0.16
+FROM 085041388644.dkr.ecr.ap-northeast-1.amazonaws.com/rails-docker-image:0.0.17
 ```
 RailsアプリをDockerコンテナ内の`/app`ディレクトリにコピーして、
 pumaは`bind 'unix:/var/run/puma.sock'`を設定すると、使用可能。
