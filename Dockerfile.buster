@@ -1,0 +1,22 @@
+FROM node:14.18.1-buster AS node
+FROM ruby:3.0.2-buster
+
+# update
+RUN apt-get update && apt-get upgrade -y
+
+# nginx
+WORKDIR = /tmp
+COPY ./docker/scripts/nginx-on-debian/install-nginx-without-mruby.sh /tmp/install-nginx-without-mruby.sh
+RUN bash /tmp/install-nginx-without-mruby.sh && rm -f /tmp/install-nginx-without-mruby.sh
+
+# node
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+
+# yarn
+COPY --from=node /opt/yarn-v1.22.15 /opt/yarn-v1.22.15/
+RUN ln -s /opt/yarn-v1.22.5/bin/yarn /usr/local/bin/yarn && \
+    ln -s /opt/yarn-v1.22.5/bin/yarnpkg /usr/local/bin/yarnpkg
+
+# jemalloc
+RUN apt-get install -y libjemalloc-dev libjemalloc2
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2

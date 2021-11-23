@@ -22,8 +22,15 @@ phases:
         #
         set -eu;
         if trigger is release ?; then
-          push-to-ecr rails-docker-image;
-          push-to-docker-hub rails-docker-image;
+          push-to-ecr ./Dockerfile.bullseye rails-docker-image bullseye;
+          push-to-ecr ./Dockerfile.bullseye-slim rails-docker-image bullseye-slim;
+          push-to-ecr ./Dockerfile.buster rails-docker-image buster;
+          push-to-ecr ./Dockerfile.buster-slim rails-docker-image buster-slim;
+
+          push-to-docker-hub ./Dockerfile.bullseye rails-docker-image bullseye;
+          push-to-docker-hub ./Dockerfile.bullseye-slim rails-docker-image bullseye-slim;
+          push-to-docker-hub ./Dockerfile.buster rails-docker-image buster;
+          push-to-docker-hub ./Dockerfile.buster-slim rails-docker-image buster-slim;
         fi;
   post_build:
     commands:
