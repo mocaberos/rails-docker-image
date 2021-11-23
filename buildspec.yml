@@ -5,7 +5,9 @@ phases:
     commands:
       - export PATH=$PATH:$(pwd)/vendor/tools/codebuild
       - export PATH=$PATH:$(pwd)/bin
+      - export DOCKER_BUILDKIT=1
       - docker-login
+      - docker buildx create --name moca-builder --use
   pre_build:
     commands:
       - |
