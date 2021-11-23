@@ -4,7 +4,7 @@
 #
 set -e;
 
-docker buildx build -t codebuild:mzk -f Dockerfile.bullseye .;
-docker buildx build -t codebuild:mzk -f Dockerfile.bullseye-slim .;
-docker buildx build -t codebuild:mzk -f Dockerfile.buster .;
-docker buildx build -t codebuild:mzk -f Dockerfile.buster-slim .;
+docker build -t codebuild:mzk -f Dockerfile.bullseye .;
+docker build -t codebuild:mzk -f Dockerfile.bullseye-slim .;
+docker build -t codebuild:mzk -f Dockerfile.buster .;
+docker build -t codebuild:mzk -f Dockerfile.buster-slim .;
