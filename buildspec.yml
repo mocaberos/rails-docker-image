@@ -3,6 +3,10 @@ version: 0.2
 phases:
   install:
     commands:
+      - kill $(cat /var/run/docker.pid)
+      - while kill -0 $(cat /var/run/docker.pid) ; do sleep 1 ; done
+      - "echo '{ \"experimental\": true }' > /etc/docker/daemon.json"
+      - /usr/local/bin/dockerd-entrypoint.sh
       - export PATH=$PATH:$(pwd)/vendor/tools/codebuild
       - export PATH=$PATH:$(pwd)/bin
       - export DOCKER_BUILDKIT=1
