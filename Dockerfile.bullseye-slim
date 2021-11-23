@@ -4,6 +4,9 @@ FROM ruby:3.0.2-slim-bullseye
 # update
 RUN apt-get update && apt-get upgrade -y
 
+# install dependencies
+RUN apt-get install wget
+
 # nginx
 WORKDIR = /tmp
 COPY ./docker/scripts/nginx-on-debian/install-nginx-without-mruby.sh /tmp/install-nginx-without-mruby.sh
