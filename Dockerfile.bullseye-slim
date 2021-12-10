@@ -8,9 +8,8 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install wget git -y
 
 # nginx
-WORKDIR = /tmp
 COPY ./docker/scripts/nginx-on-debian/install-nginx-without-mruby.sh /tmp/install-nginx-without-mruby.sh
-RUN bash /tmp/install-nginx-without-mruby.sh && rm -f /tmp/install-nginx-without-mruby.sh
+RUN bash /var/tmp/install-nginx-without-mruby.sh && rm -f /var/tmp/install-nginx-without-mruby.sh
 
 # node
 COPY --from=node /usr/local/bin/node /usr/local/bin/node
