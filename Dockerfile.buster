@@ -5,7 +5,7 @@ FROM ruby:3.0.2-buster
 RUN apt-get update && apt-get upgrade -y
 
 # nginx
-COPY ./docker/scripts/nginx-on-debian/install-nginx-without-mruby.sh /tmp/install-nginx-without-mruby.sh
+COPY ./docker/scripts/nginx-on-debian/install-nginx-without-mruby.sh /var/tmp/install-nginx-without-mruby.sh
 RUN bash /var/tmp/install-nginx-without-mruby.sh && rm -f /var/tmp/install-nginx-without-mruby.sh
 
 # node
