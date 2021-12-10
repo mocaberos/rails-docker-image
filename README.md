@@ -21,13 +21,13 @@ RailsアプリをDockerコンテナ内の`/app`ディレクトリにコピーし
 pumaは`bind 'unix:/var/run/puma.sock'`を設定すると、使用可能。
 
 ## 詳細
-- Debian 11（bullseye)
+- Debian 10 (buster) or 11（bullseye)
 - Nginx
   - https://github.com/mocaberos/nginx-on-debian
   - mrubyなしバージョン
 - Rails 6 or 7
 - Ruby 3.0.2
-- Node.js 14.17.5
+- Node.js 14.18.1
 - jemalloc (Rubyのアロケーションライブラリをよりパフォーマンスの良いjemallocに変更)
 
 Nginxの設定ファイルは`docker/nginx`内のものをコピーして使用できます。
